@@ -1,0 +1,522 @@
+@import 'Sass/variables.scss';
+@import 'Sass/reset.scss';
+@import 'Sass/mixin.scss';
+
+@mixin bus-item-tabs-details-book-ticket-content-col {
+    padding: 0  20px;
+    box-sizing: border-box;
+}
+
+@mixin  bus-item-tabs-details-book-ticket-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.bus-page {
+    background-color: #ffffff;
+    .title{
+        margin: 10px auto;  
+        position: relative;
+        .title-details{
+            right: 0;
+            position: absolute;
+            font-size: 15px;
+            font-style: italic;
+            font-weight: normal;
+        }
+    }
+    .loadmore-bus-item{
+        display: flex;
+        justify-content: center;
+        button{
+            background-color: #FFBC00;
+            color: white;
+            font-weight: bold;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            width: 100px;
+            height: 50px;
+        }
+    }
+    .search-form {
+        height: 80px;
+        justify-content: center;
+        align-items: center;
+        background-color: #FFB200;
+        width: 80%;
+        display: grid;
+        margin: 0 auto;
+        flex-direction: row;
+        grid-template-columns: 4fr 2fr 1.5fr;
+
+        h1 {
+            display: none;
+        }
+
+        .location-select-row {
+            display: grid;
+            flex-direction: row;
+            grid-template-columns: 3fr 1fr 3fr;
+            padding: 20px;
+
+            .btn-switch {
+                height: 40px;
+                min-height: 40px;
+                background: url('./assets/fast-forward.svg') center center no-repeat;
+                background-size: 40px 40px;
+            }
+
+            input {
+                border: none;
+
+            }
+        }
+
+        .date-select-row {
+            padding: 20px;
+
+            input {
+                border: none;
+            }
+        }
+
+        .btn-find-bus {
+            margin: 0;
+            height: 40px;
+            min-height: 40px;
+            display: flex;
+            justify-content: center;
+
+            a {
+                color: #ffffff;
+                background-color: #116BD2;
+                outline: none;
+                width: 60%;
+                height: 100%;
+                border: none;
+                font-weight: bold;
+                border-radius: 5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-image: none;
+            }
+        }
+    }
+    .render-bus {
+        min-height: 100vh;
+        width: 80%;
+        margin: 0 auto;
+        box-sizing: border-box;
+
+        h1 {
+            font-size: $sectionHeading;
+            color: $deepBlue;
+            font-weight: bold;
+        }
+
+        .render-bus-item {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: auto;
+            .bus-item-infor{
+                .bus-item {
+                    display: grid;
+                    grid-template-columns: 2fr 4fr 2fr 2fr 2fr;
+                    border-top: solid grey 0.5px;
+                    padding: 20px 0;
+                    text-align: center;
+                    align-items: center;
+                    justify-content: center;
+    
+                    .bus-item-column-1 {
+                        background: url('./features/RenderBus/features/BusItem/assets/vexere-ico.svg') no-repeat;
+                        background-size: 25px;
+                        background-position-x: 0;
+                        background-position-y: 0;
+                        img {
+                            width: 25px;
+                            height: 25px;
+                        }
+                    }
+    
+                    .bus-item-column-2 {
+                        display: grid;
+                        grid-template-columns: 2fr 1fr 2fr;
+                        
+                        h6 {
+                            font-size: 14px;
+                            font-weight: bold;
+                        }
+                        p{
+                            font-size: 14px;
+                        }
+                    }
+    
+                    .bus-item-column-3 {
+                        p{
+                            font-size: 14px;
+                        }
+                    }
+    
+                    .bus-item-column-4 {
+                        .left-rating {
+                            @include rating-star;
+                        }
+    
+                        .right-rating {
+                            .bus-quality-rating {
+                                background: #1867BD;
+                                display: inline-block;
+                                color: #fff;
+                                padding: 1px 4px;
+                                border-radius: 3px;
+                                font-weight: bold;
+                                margin-right: 5px;
+                                font-family: 'Lato';
+                            }
+    
+                            .bus-quatity-rating {
+                                color: dodgerblue;
+                            }
+                        }
+                    }
+    
+                    .bus-item-column-5 {
+                        h6 {
+                            font-size: 20px;
+                        }
+    
+                        .btn-book-ticket {
+    
+                            background: #FFB800 url('./features/RenderBus/features/BusItem/assets/vexere-bus-icon.svg') no-repeat left;
+                            background-size: 30px 30px;
+                            box-sizing: content-box;
+                            display: inline-block;
+                            position: relative;
+                            padding: 10px;
+                            color: #684d18;
+                            font-weight: bold;
+                            font-size: 15px;
+                            border: none;
+                            box-shadow: none;
+                            border-radius: 3px !important;
+                            padding-left: 25px;
+                            border-radius: 3px;
+                            width: 80px;
+                            min-width: 60px;
+                        }
+                    }
+                }
+                .bus-item-details{
+                    display: grid;
+                    grid-template-columns: 2fr 4fr 2fr 2fr 2fr;
+                    text-align: center;
+                    align-items: center;
+                    justify-content: center;
+                    div{
+                        a{
+                            color: darkblue;
+                            &:hover{
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                    .bus-item-wish{
+                        a{
+                            img{
+                                width: 20px;
+                                height: 20px;
+                            }
+                        }
+                    }
+
+                }    
+                .bus-item-tabs-details{
+                    height: auto;
+                    max-width: 100%;
+                    max-height: 100%;
+                    box-sizing: border-box;
+                    margin: 20px 0;
+                    .bus-item-tabs-details-book-ticket{
+                        .bus-item-tabs-details-book-ticket-title{
+                               @include bus-item-tabs-details-book-ticket-row;
+                                h6{
+                                    @include  bus-item-tabs-details-book-ticket-content-col;
+                                }
+                        }
+                        .bus-item-tabs-details-book-ticket-content{
+                            @include bus-item-tabs-details-book-ticket-row;
+                            .bus-item-tabs-details-book-ticket-content-col-1{
+                                @include  bus-item-tabs-details-book-ticket-content-col;
+                                .seat-guide-row{
+                                    display: grid;
+                                    grid-template-columns: 1fr 1fr 1fr;
+                                    div{
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: left;
+                                        img{
+                                            width: 20px;
+                                            height: 20px;
+                                            border-radius: 5px;
+                                            margin-right: 10px;
+                                        }
+                                    }
+                                }
+                                .seat-bus{
+                                    display: grid;
+                                    grid-template-columns: repeat(4, 1fr);
+                                    margin: 0 auto;
+                                    padding: 10px;
+                                    box-sizing: border-box;
+                                    grid-gap: 10px;
+                                    grid-auto-rows: minmax(60px, auto);
+                                    .seat-on-bus{
+                                        padding: 10px;
+                                        width: 50%;
+                                    }
+                                }
+                            }
+                            .bus-item-tabs-details-book-ticket-content-col-2{
+                                @include  bus-item-tabs-details-book-ticket-content-col;
+                                border-right: solid 0.5px #DCDCDC;
+                                border-left: solid 0.5px #DCDCDC;
+                            }
+                            .bus-item-tabs-details-book-ticket-content-col-3{
+                                @include  bus-item-tabs-details-book-ticket-content-col;
+                            }
+
+                        }
+                        .bus-item-tabs-details-book-ticket-footer{
+                            @include bus-item-tabs-details-book-ticket-row;
+                            font-size: 15px;
+                            .bus-item-tabs-details-book-ticket-footer-col-1{
+                                @include bus-item-tabs-details-book-ticket-content-col;
+                                div{
+                                    display: grid;
+                                    grid-template-columns: 4fr 2fr;                        
+                                }
+                            }
+                            .bus-item-tabs-details-book-ticket-footer-col-2{
+                                @include bus-item-tabs-details-book-ticket-content-col;
+                                div{
+                                    display: flex;
+                                    flex-direction: column;
+                                    position: relative;
+                                    .right-column{
+                                        font-weight: bold;
+                                        position: absolute;
+                                        right: 0;
+                                    }
+                                }
+                            }
+                            .bus-item-tabs-details-book-ticket-footer-col-3{
+                                @include bus-item-tabs-details-book-ticket-content-col;
+                                display: flex;
+                                justify-content: center;
+                                .btn-payment{
+                                    display: block;
+                                    width: 80%;
+                                    align-items: center;
+                                    background: #FFB800 url('./features/RenderBus/features/BusItem/assets/right-arrow.svg') no-repeat right;
+                                    border: none;
+                                    outline: none;
+                                    border-radius: 5px;
+                                    font-weight: bold;
+                                    font-size: 20px;
+                                    background-size: 30px;
+                                }
+                            }
+                        }
+                    }
+                   .nav-close-tabs{
+                       position: absolute;
+                       top: 0%;
+                       right: 0;
+                       a{
+                        display: block;
+                        font-size: 20pt;
+                        padding: 0; 
+                        margin: 0;
+                        border:  none;
+                        outline: none;
+                        color: #1867BD;
+                        &:hover{
+                            border:  none;
+                            outline: none;
+                            margin: 0;
+                            padding: 0;
+                        }
+                       }
+                   }
+                    .bus-items-images{  
+                        @include child-container;
+                    }
+                    .bus-items-ratings{
+                        @include child-container;
+                        h3{
+                            font-weight: bold;
+                            font-size: 15pt;
+                        }
+                        .bus-item-rating{
+                            display: grid;
+                            grid-template-columns: 1fr 1fr 1fr;
+                            justify-content: center;
+                            align-items: center;
+                            text-align: center;
+                            .bus-item-rating-left{
+                                .bus-item-rating-left-top{
+                                    color: red;
+                                    font-weight: bold;
+                                    font-size: 20pt;
+                                }
+                                .bus-item-rating-left-bottom{
+                                    @include rating-star;
+                                    .empty-stars {
+                                        font-size: 20pt;
+                                    }
+                                    .full-stars{
+                                        font-size: 20pt;
+                                    }
+                                }
+                            }
+                            .bus-item-rating-middle{
+                                .bus-item-rating-middle-progress{
+                                    display: grid;
+                                    grid-template-columns: 2fr 3fr 1fr;
+                                }
+                            }
+                            .bus-item-rating-right{
+                                display: flex;
+                                justify-content: center;
+                                .bus-item-rating-right-btn-rating{
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    background-color: #FFBC00;
+                                    outline: none;
+                                    border: none;
+                                    border-radius: 5px;
+                                    width: 200px;
+                                    height: 50px;
+                                    font-size: 12pt;
+                                    color: black;
+                                }
+                            }
+                        }
+                        .bus-item-comments{
+
+                        }
+                    }
+                    .bus-items-plan{
+                        @include child-container;
+                    }
+                    .bus-items-cancel-policy{
+                        @include child-container;
+                    }
+                }
+                .bus-item-note{
+                    p{
+                        font-size: 15px;
+                    }
+                }
+                // .close-tabs{
+                //     display: flex;
+                //     justify-content: center;
+                //     button{
+                //         background-color: #FFBC00;
+                //         color: white;
+                //         font-weight: bold;
+                //         outline: none;
+                //         border: none;
+                //         border-radius: 5px;
+                //         width: 100px;
+                //         height: 50px;
+                //     }
+                // }
+            }
+        }
+    }
+    .filter-bus-container{
+        width: 80%;
+        margin: 0 auto;
+        box-sizing: border-box;
+        min-height: 50px;
+        height: auto;
+        display: flex;
+        align-items: center;
+        background: #ffffff;
+        border: solid 0.1px #eeeeee;
+        justify-content: center;
+        flex-direction: column;
+        a{
+            font-size: 15px;
+            color: #2C46AC;
+            margin: 20px 0;
+            &:hover{
+                text-decoration: underline;
+                color: #FFB800;
+                font-weight: bold;
+            }
+        }
+        .filter{
+            min-height: 300px;
+            width: 100%;
+            max-width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            li{
+                padding: 0 20px;
+                h6{
+                    text-align: center;
+                    font-size: 15px;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+        .filter-footer {
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            a {
+                font-weight: bold;
+                color: #ffffff;
+                display: block;
+                height: 100%;
+                width: 100px;
+                display: flex;
+                justify-content: center;
+                border-radius: 5px;
+                align-items: center;
+                margin: 0 5px;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+        .filter-title{
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            position: relative;
+            a{
+                display: block;
+            }
+            .close-filter{
+                position: absolute;
+                right: 20px;
+                margin: 0;
+                i{
+                    font-size: 30px;
+                }
+            }
+        }
+    }
+}

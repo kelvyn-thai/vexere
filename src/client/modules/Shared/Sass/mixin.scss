@@ -1,0 +1,52 @@
+/*
+Mixin
+*/
+@mixin  rating-star {
+    position: relative;
+    vertical-align: middle;
+    display: inline-block;
+    color: #ccc;
+    overflow: hidden;
+
+    .empty-stars {
+        font-size: 15pt;
+        &:before {
+            content: "★ ★ ★ ★ ★"
+        }
+    }
+
+    .full-stars {
+        font-size: 15pt;
+        position: absolute;
+        left: 0;
+        top: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        color: #f8af00;
+
+        &:before {
+            content: "★ ★ ★ ★ ★"
+        }
+    }
+}
+
+@mixin child-container {
+    width: 80%;
+    margin: 20px auto;
+    box-sizing: border-box;   
+}
+
+@mixin input-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: left;
+    height: 100px;
+    min-height: 80px;
+    width: 50%;
+    min-width: 40%;
+    .error-input{
+        color: red;
+        font-weight: bold;
+    }
+}

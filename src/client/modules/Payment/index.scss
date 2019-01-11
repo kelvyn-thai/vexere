@@ -1,0 +1,83 @@
+@mixin  option-payment {
+    padding-left: 50px;
+    background-size: 30px 30px;
+    display: block;
+    background-position: center left;
+}
+
+.payment {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    width: 80%;
+    margin: 0 auto;
+    justify-content: center;
+    height: auto;
+    min-height: 100vh;
+    padding: 20px 0;
+    grid-column-gap: 50px;
+    box-sizing: border-box;
+    .payment-methods {
+       .panel {
+           margin-bottom: 20px;
+           .panel-heading {
+               padding: 0;
+               margin: 0;
+               height: 40px;
+               line-height: 40px;
+               min-height: 20px;
+               .panel-title{ 
+                   a{
+                    display: block;
+                    background: url('./features/MethodsPayment/assets/right-arrow.svg') no-repeat;
+                    background-size: 20px 20px;
+                    background-position: center right;
+                    color: black;
+                    .option-internation-card{
+                        background: url('./features//MethodsPayment/assets/credit-cards-payment.svg') no-repeat;
+                        padding-left: 50px;
+                        background-size: 30px 30px;
+                        display: block;
+                        background-position: center left;
+                    }
+                    .option-atm-card {
+                        background: url('./features//MethodsPayment/assets/payment.svg') no-repeat;
+                        @include option-payment;
+                    }
+                    .option-on-site {
+                        background: url('./features//MethodsPayment/assets/house.svg') no-repeat;
+                        @include option-payment;
+                    }
+                    .option-transfer{
+                        background: url('./features//MethodsPayment/assets/money-transfer.svg') no-repeat;
+                        @include option-payment;
+                    }
+                    .option-shop{
+                        background: url('./features//MethodsPayment/assets/placeholder.svg') no-repeat;
+                        @include option-payment;
+                    }
+                    &:hover{
+                        font-weight: bold;
+                        color:black;
+                    }
+                   } 
+               }
+           }
+       }
+    }
+
+    .payment-information{ 
+        
+        p{
+            strong{
+
+            }
+        }
+
+        .total-price{
+            color: red;
+            h6{
+                font-size: 20px;    
+            }
+        }
+    }
+}

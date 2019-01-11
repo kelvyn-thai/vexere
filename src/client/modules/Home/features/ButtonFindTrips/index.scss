@@ -1,0 +1,24 @@
+.btn-find-trips {
+    width: 100%;
+    height: 50px;
+    min-height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    a{
+        color: #6A5217;
+        background-color: #f9af00;
+        outline: none;
+        width: 20%;
+        height: 100%;
+        background-image: url('./vexere-bus-icon.svg');
+        background-repeat: no-repeat;   
+        border: none;
+        font-weight: bold;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }                 
+}

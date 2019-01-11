@@ -1,0 +1,32 @@
+@import '../../../Shared/Sass/variables.scss';
+
+.services-home-page{
+    width: 80%;
+    margin: 20px auto;
+    h1{
+        font-size: $sectionHeading;
+        color: $deepBlue;
+    }
+    ul{
+        display: flex;
+        justify-content: space-between;
+        background-color: #FAFAFA;
+        li{
+            text-align: center;
+            img {
+                display: block;
+                margin: 0 auto;
+                height: 80px;
+            }
+            a {
+                color: grey;
+                font-weight: bold;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+        }
+        
+    }   
+    
+}

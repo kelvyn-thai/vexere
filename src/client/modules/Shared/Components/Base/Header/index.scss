@@ -1,0 +1,34 @@
+@import '../../../Sass/variables.scss';
+@import '../../../Sass/reset.scss';
+
+.header-page {
+    background-color: $deepBlue;
+    display: grid;
+    grid-template-columns: 3fr 9fr;
+    width: 80%;
+    margin: 0 auto;
+    .menu-header{
+        font-size: 18px;
+        ul {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            li {   
+                width: auto;
+                a {
+                    color: aliceblue;
+                    text-align: center;
+                    display: block;
+                    padding: 12px;
+                    &:hover {
+                        text-decoration: underline
+                    }
+                }
+            }
+            
+        }
+    }
+      
+}

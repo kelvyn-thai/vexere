@@ -1,0 +1,35 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "noImplicitReturns": false,
+        "noImplicitThis": false,
+        "noImplicitAny": false,
+        "module": "commonjs",
+        "target": "es6",
+        "jsx": "react",
+        "baseUrl": ".",
+        "paths": {
+            "BaseComponent/*": ["src/client/modules/Shared/Components/Base/*"],
+            "Variables": ["src/client/modules/Shared/Variables"],
+            "Library/*": ["src/client/modules/Shared/Library/*"],
+            "Assets/*": ["assets/*"],
+            "Redux/*": ["src/client/redux/*"],
+
+            "App/*": ["src/client/modules/App/*"],
+            "Login/*": ["src/client/modules/Login/*"],
+            "Shared/*": ["src/client/modules/Shared/*"],
+            "Register/*": ["src/client/modules/Register/*"],
+            "Bus/*": ["src/client/modules/Bus/*"],
+            "Payment/*": ["src/client/modules/Payment/*"],
+            "Home/*": ["src/client/modules/Home/*"],
+            "Customer/*": ["src/client/modules/Customer/*"],
+            "Ticket/*": ["src/client/modules/Ticket/*"],
+            "Brand/*": ["src/client/modules/Brand/*"],
+            "NotFound/*": ["src/client/modules/NotFound/*"],
+        }
+    },
+    "include": [
+        "./src/**/*"
+    ],
+}

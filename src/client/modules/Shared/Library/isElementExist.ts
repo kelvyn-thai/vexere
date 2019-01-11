@@ -1,0 +1,1 @@
+export const isElementExistByField =  (array, element, field) => array.length > 0 ? array.some( ele => ele[field] === element) : false

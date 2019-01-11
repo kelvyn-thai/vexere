@@ -1,0 +1,111 @@
+@import 'Shared/Sass/variables.scss';
+@import 'Shared/Sass/mixin.scss';
+
+.clrd {
+    grid-column: span 10;
+}
+
+.register-frame {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr 4fr;
+    margin-top: 50px;
+    align-items: center;
+    min-height: 100vh;
+    .left-frame {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: space-between;
+        border-right: solid 0.5px grey;
+        h1 {
+            font-size: $sectionHeading;
+            color: $deepBlue;
+            margin: 0;
+        }
+        input{
+            padding-left: 10px;
+        }
+        .input-email{
+            @include input-container;
+        }
+        .input-password{
+            @include input-container;
+        }
+        .input-name{
+            @include input-container;
+        }
+        .input-address{
+            @include input-container;
+        }
+        .input-phone{
+            @include input-container;
+        }
+        .input-dob{
+            @include input-container;
+        }
+
+        .btn-register{
+            width: 50%;
+            height: 50px;
+            min-height: 40px;
+            min-width: 20%;
+            button{
+                background-color: #FCAF00;
+                width: 100%;
+                max-width: 100%;
+                height: 100%;
+                max-height: 100%;
+                border: none;
+                border-radius: 5px;
+                font-weight: bold;
+            }
+        }
+        .link-login{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+            min-height: 40px;
+            width: auto;
+            max-width: 100%;
+            span{
+                a{
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+    .right-frame{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: space-between;
+        .btn-react-google-login{
+            width: 50%;
+            max-width: 50%;
+            height: 50px;
+            margin: 0;
+            padding: 0;
+            button{
+                max-width: 100%;
+                width: 100%;
+            }
+        }
+        .btn-react-facebook-login{
+            width: 50%;
+            button{
+                max-width: 100%;
+                width: 100%;
+                border-radius: 5px;
+                height: 50px;
+                margin: 0;
+                padding: 0;
+            }
+            
+        }
+    }
+}
