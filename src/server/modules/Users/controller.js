@@ -23,22 +23,77 @@ class UsersController extends RootController {
         this.router.post("/api/user/destroy-ticket-booked", middleware.isAuthenticated, this.handleDestroyTicketBooked.bind(this));
         this.router.post('/api/user/change-role', middleware.isAuthenticated, middleware.validateAdmin, this.handleChangeRole.bind(this));
         this.router.post("/api/user/login-by-facebook", this.handleLoginByFacebook.bind(this));
-        this.router.post("/api/user/login-by-google", this.handleLoginByGoogle.bind(this));
+        this.router.post("/api/user/login-by-google",  this.handleLoginByGoogle.bind(this));
         return this.router;
     }
 
-    handleLoginByFacebook(req, res, next) {
-
+    async handleLoginByFacebook(req, res, next) {
+        const { email, accessToken, name } = req.body;
+        let user = await Users.findOne({email});
+        if (user) {
+            req.session.user = user;
+            return res.status(200).json({
+                payload: user,
+                msg: 'Login by facebook success!',
+                isError: false
+            })
+        }
+        else {
+            const data = {
+                email,
+                password: await Users.generateHash(accessToken),
+                name,
+                phone: '0902751467',
+                dob: new Date().getTime(),
+                address: '227 Nguyen Van Cu Q.5 TP HCM'
+            }
+            let newUser = await Users.save(data);
+            req.session.user = newUser;
+            return res.status(200).json({
+                payload: newUser,
+                msg: 'Login by facebook success!',
+                isError: false
+            })
+        }
     }
 
-    handleLoginByGoogle(req, res, next) {
-        
+    async handleLoginByGoogle(req, res, next) {
+
+        const { accessToken } = req.body;
+        const { email, name} = req.body.profileObj;
+
+        let user = await Users.findOne({email});
+        if (user) {
+            req.session.user = user;
+            return res.status(200).json({
+                payload: user,
+                msg: 'Login by google success!',
+                isError: false
+            })
+        }
+        else {
+            const data = {
+                email,
+                password: await Users.generateHash(accessToken),
+                name,
+                phone: '0902751467',
+                dob: new Date().getTime(),
+                address: '227 Nguyen Van Cu Q.5 TP HCM'
+            }
+            let newUser = await Users.save(data);
+            req.session.user = newUser;
+            return res.status(200).json({
+                payload: newUser,
+                msg: 'Login by google success!',
+                isError: false
+            })
+        }
     }
 
 
     async handleDestroyTicketBooked(req, res, next) {
 
-        const {  ticket: ticketDestroyed } = req.body;
+        const { ticket: ticketDestroyed } = req.body;
 
         const { time_start, tickets, _id: bus_id } = await Bus.findById(ticketDestroyed['busId'], "_id time_start tickets");
 
@@ -67,7 +122,7 @@ class UsersController extends RootController {
             }
             await Bus.findOneAndUpdate(filter, update, options);
 
-            ticket = {...ticketDestroyed};
+            ticket = { ...ticketDestroyed };
             ticket.time_destroyed = new Date().getTime();
 
             const data = {
@@ -81,32 +136,17 @@ class UsersController extends RootController {
                 }
             }
 
-
             const result = await Users.findByIdAndUpdate(req.session.user['_id'], data, { new: true })
 
-            if (result) {
-                return res.json({
-                    payload: result,
-                    status: 200,
-                    isError: false,
-                    msg: "Destroy ticket sucesss"
-                })
-            }
-            else {
-
-                return res.json({
-                    payload: null,
-                    status: 400,
-                    isError: true,
-                    msg: "Destroy ticket fail"
-                })
-            }
-
+            return res.status(200).json({
+                payload: result,
+                isError: false,
+                msg: "Destroy ticket sucesss"
+            })
         }
         else {
             return res.json({
                 payload: null,
-                status: 400,
                 isError: true,
                 msg: "Destroy ticket fail"
             })
@@ -453,7 +493,7 @@ class UsersController extends RootController {
     }
 
     async handleChangeRole(req, res, next) {
-        const result = await Users.findByIdAndUpdate(req.body._id, {role: req.body.role}, { new: true });
+        const result = await Users.findByIdAndUpdate(req.body._id, { role: req.body.role }, { new: true });
 
         if (result) {
 

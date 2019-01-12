@@ -149,5 +149,12 @@ module.exports = {
                 msg: "Only managers are accepted for this action",
             })
         }
+    },
+    facebookLogin: async (req, res, next) => {
+        
+    },
+
+    googleLogin: (req, res, next) => {
+
     }
 }

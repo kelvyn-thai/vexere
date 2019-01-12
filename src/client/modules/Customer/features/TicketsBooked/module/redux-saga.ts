@@ -11,19 +11,11 @@ function* watchRequestDestroyTicketBooked() {
 
 function* requestDestroyTicketBooked(action) {
     try {
-        console.log('action ', action)
-        const { data } = yield call(apiDestroyTicketBooked, action.payload);
-        console.log('data ', data)
-        const { payload, status } = data;
-
-        if(status === 200) {
-            yield put(actionDestroyTicketBookedSuccess(payload));
-        }
-        else {
-            yield put(actionDestroyTicketBookedFail());
-        }
+       const { data } = yield call(apiDestroyTicketBooked, action.payload);
+       const { payload } = data;
+       yield put(actionDestroyTicketBookedSuccess(payload));    
     } catch (error) {
-        
+        yield put(actionDestroyTicketBookedFail());
     }
 }
 

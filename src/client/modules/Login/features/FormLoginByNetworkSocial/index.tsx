@@ -2,15 +2,21 @@ import * as React from 'react';
 import GoogleLogin from "react-google-login";
 import FacebookLogin from "react-facebook-login";
 import { CLIENT_ID_GOOGLE, APP_ID_FACEBOOK } from 'Shared/Constant';
+import withLoginByNetworkSocial from './withLoginByNetworkSocial';
 
 
 class FormLoginByNetworkSocial extends React.Component<any, any>{
+    
     responseGoogle = (message: any) => {
-        console.log(message);
+        if(!message.error){
+            this.props.loginByGoogle(message);
+        }
     }
 
     responseFacebook = (message: any) => {
-        console.log(message);
+        if(!message.status){
+            this.props.loginByFacebook(message);
+        }
     }
 
 
@@ -37,4 +43,4 @@ class FormLoginByNetworkSocial extends React.Component<any, any>{
     }
 }
 
-export default FormLoginByNetworkSocial;
+export default withLoginByNetworkSocial(FormLoginByNetworkSocial);

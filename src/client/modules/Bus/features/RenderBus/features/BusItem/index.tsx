@@ -191,7 +191,7 @@ class BusItem extends React.Component<any, any>{
                     <div><a href="" onClick={(e) => this._onShowTabsDetails(e, 4)}>Chính sách hủy vé</a></div>
                     <div className="bus-item-wish">
                         {isAuthenticated &&
-                            <WishBus wishBuses={wishBuses} busId={busId}/>
+                            <WishBus wishBuses={wishBuses} busId={busId} busData={data}/>
                         }
                     </div>
                 </div>

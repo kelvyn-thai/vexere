@@ -1,6 +1,4 @@
 /node_modules
-/webpack.config.js
-/tsconfig.json
 npm-debug.log
 .DS_Store
 /*.env

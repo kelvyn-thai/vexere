@@ -19,7 +19,7 @@ export default (state = initialState, action) => {
                 return {
                     ...state
                 }
-            }
+            }    
         case ACTION_LOGIN_FETCHING:
             {
                 return {
