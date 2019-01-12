@@ -6,7 +6,6 @@ import store from "Redux/store";
 import Home from 'Home/index';
 import Customer from 'Customer/index';
 import Admin from '../Admin/index';
-import Manager from '../Manager/index';
 import Login from 'Login/features/LoginPage';
 import Register from 'Register/index';
 import Bus from "Bus/index";
@@ -41,7 +40,6 @@ export default class App extends React.Component<any, any> {
                         <Route exact path="/register" component={Register} />
                         <Route exact path="/customer" component={Customer} />
                         <Route exact path="/admin" component={Admin} />
-                        <Route exact path="/manager" component={Manager} />
                         <Route exact path="/payment" component={Payment} />
                         <Route exact path="/*" component={NotFound} />
                     </Switch>

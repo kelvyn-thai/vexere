@@ -1,5 +1,5 @@
-// export const URL_SERVER_STATIC = "https://quiet-woodland-55436.herokuapp.com";
-export const URL_SERVER_STATIC = "http://localhost:3000"
+export const URL_SERVER_STATIC = "https://murmuring-temple-38233.herokuapp.com/";
+// export const URL_SERVER_STATIC = "http://localhost:3000"
 export const CLIENT_ID_GOOGLE = "156116355356-1ielvf2rsk4ksg24ja9skag0tk8jms66.apps.googleusercontent.com";
 export const APP_ID_FACEBOOK ="225407535058173";
 export const AXIOS_CONFIG = {
