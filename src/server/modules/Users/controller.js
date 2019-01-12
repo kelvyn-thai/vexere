@@ -194,6 +194,7 @@ class UsersController extends RootController {
     }
 
     async hanldeLogoutUsers(req, res, next) {
+        delete req.session.user;
         await req.session.destroy();
         return res.json({
             payload: {
